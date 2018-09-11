@@ -15,17 +15,17 @@ import br.com.livraria.repository.AutorRepository;
 public class AutorController {
 
 	@Autowired
-	private AutorRepository autores;
+	private AutorRepository autore;
 
 	@RequestMapping("/novo")
 	public ModelAndView novo() {
-		ModelAndView mv = new ModelAndView("cadAutores");
+		ModelAndView mv = new ModelAndView("cadAutor");
 		return mv;
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
 	public ModelAndView salvar(Autor autor) {
-		autores.save(autor);
+		autore.save(autor);
 
 		ModelAndView mv = new ModelAndView("cadAutores");
 		mv.addObject("mensagem", "Autor cadastrado com sucesso");
